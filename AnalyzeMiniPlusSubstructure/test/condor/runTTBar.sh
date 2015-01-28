@@ -3,7 +3,8 @@
 #source /uscmst1/prod/sw/cms/shrc uaf
 source /cvmfs/cms.cern.ch/cmsset_default.sh
 cd /uscms_data/d2/skhalil/YPrime/CMSSW_7_3_0/src
-cmsenv
+#cmsenv
+eval `scram runtime -sh`
 
 cd ${_CONDOR_SCRATCH_DIR}
 
