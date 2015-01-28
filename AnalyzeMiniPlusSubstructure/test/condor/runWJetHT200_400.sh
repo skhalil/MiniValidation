@@ -9,9 +9,9 @@ cd ${_CONDOR_SCRATCH_DIR}
 
 let "sample=${1}+1"
 cp /uscms_data/d2/skhalil/YPrime/CMSSW_7_3_0/src/MiniValidation/AnalyzeMiniPlusSubstructure/test/wjets_ht_200to400/wjets_ht_200to400_${sample}.py .
-cmsRun wjet_ht_200to400_${sample}.py
+cmsRun wjets_ht_200to400_${sample}.py
 mv *.root /eos/uscms/store/user/skhalil/YPrime/Hist/wjets_ht_200to400
-rm wjet_ht_200to400_${sample}.py
+rm wjets_ht_200to400_${sample}.py
 ls
 echo "DONE!"
 
