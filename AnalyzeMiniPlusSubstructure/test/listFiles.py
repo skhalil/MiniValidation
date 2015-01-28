@@ -26,6 +26,7 @@ f = open(textName+'.txt', 'w')
 cmd = 'ls %s/' %(path)
 
 for i in commands.getoutput(cmd).split('\n'):
+    if '.root' not in i: continue 
     print path+"/"+i
-    f.write(path+"/"+i+'\n')
-    
+    #f.write(path+"/"+i+'\n')
+    f.write('"file:'+path+'/'+i+'"'+'\n')
