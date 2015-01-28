@@ -1,0 +1,14 @@
+universe = vanilla
+Executable = runWJetHT600_Inf.sh
+should_transfer_files = YES
+WhenTOTransferOutput  = ON_EXIT
+notification = never
+myPath = /uscms_data/d2/skhalil/YPrime/CMSSW_7_3_0/src/MiniValidation/AnalyzeMiniPlusSubstructure/test/condor
+myLogFolder = output
+Output = $(myPath)/$(myLogFolder)/batch_$(cluster)_$(process).stdout
+Error  = $(myPath)/$(myLogFolder)/batch_$(cluster)_$(process).stderr
+Log    = $(myPath)/$(myLogFolder)/batch_$(cluster)_$(process).condor
+Requirements          = (Memory >= 499 && OpSys == "LINUX" && (Arch != "DUMMY"))
+x509userproxy = $ENV(X509_USER_PROXY) 
+Arguments = $(process)
+Queue 352
