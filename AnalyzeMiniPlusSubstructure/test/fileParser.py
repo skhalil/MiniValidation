@@ -8,7 +8,7 @@ def main():
   parser = OptionParser()
 
   parser.add_option('--input', metavar='F', type='string', action='store',
-                    default = 'ttjesPHYS14Files.txt',
+                    default = 'ttjetsPHYS14Files.txt',
                     dest='input',
                     help='Input text file')
 
@@ -28,13 +28,13 @@ def main():
   outDir = options.outputDir
   tempConfig = options.dummyConfig
   # get total number of files stored in a text file
-  with open('ttjesPHYS14Files.txt') as f:
+  with open(inputFile) as f:
     f_num = sum(1 for _ in f)
   print f_num
   # create a copy of parameter config for each file
   in_file = open(inputFile)
   for n_file in range (1, f_num+1):
-     temp = open('dummy_config.py')
+     temp = open(tempConfig)
      o_file = open(outDir+'/'+outDir+'_'+str(n_file)+'.py', 'w')
      file_path = in_file.readline()
      print file_path, int(n_file)
