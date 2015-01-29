@@ -1,14 +1,16 @@
 universe = vanilla
-Executable = runWJetHT600_Inf.sh
+Executable = run.sh
 should_transfer_files = YES
 WhenTOTransferOutput  = ON_EXIT
 notification = never
-myPath = /uscms_data/d2/skhalil/YPrime/CMSSW_7_3_0/src/MiniValidation/AnalyzeMiniPlusSubstructure/test/condor
-myLogFolder = output
-Output = $(myPath)/$(myLogFolder)/batch_$(cluster)_$(process).stdout
-Error  = $(myPath)/$(myLogFolder)/batch_$(cluster)_$(process).stderr
-Log    = $(myPath)/$(myLogFolder)/batch_$(cluster)_$(process).condor
+runPath = /uscms_data/d2/skhalil/YPrime/CMSSW_7_3_0/src/MiniValidation/AnalyzeMiniPlusSubstructure/test
+myLogFolder = condor/output
+outPath = /eos/uscms/store/user/skhalil/YPrime/Hist
+sample = wjets_ht_600toInf
+Output = $(runPath)/$(myLogFolder)/batch_$(cluster)_$(process).stdout
+Error  = $(runPath)/$(myLogFolder)/batch_$(cluster)_$(process).stderr
+Log    = $(runPath)/$(myLogFolder)/batch_$(cluster)_$(process).condor
 Requirements          = (Memory >= 499 && OpSys == "LINUX" && (Arch != "DUMMY"))
 x509userproxy = $ENV(X509_USER_PROXY) 
-Arguments = $(process)
+Arguments = $(cluster) $(process) $(runPath) $(outPath) $(sample)
 Queue 352
